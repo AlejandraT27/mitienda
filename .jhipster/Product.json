@@ -1,0 +1,82 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "purchasePrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "salePrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "size",
+            "fieldType": "Size",
+            "fieldValues": "XS,S,M,L,XXL",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "color",
+            "fieldType": "Color",
+            "fieldValues": "Blanco,Cafe,Negro,Gris,Azul",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "stock",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "stock",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "producto",
+            "relationshipName": "productCategoy"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "productCategory",
+            "otherEntityRelationshipName": "producto",
+            "relationshipName": "productCategory"
+        }
+    ],
+    "changelogDate": "20200503223000",
+    "entityTableName": "product",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

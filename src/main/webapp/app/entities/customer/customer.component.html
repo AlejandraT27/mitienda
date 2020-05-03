@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mitiendaApp.customer.home.title">Customers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer" [routerLink]="['/customer/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="mitiendaApp.customer.home.createLabel">
+            Create a new Customer
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="customers?.length === 0">
+        <span jhiTranslate="mitiendaApp.customer.home.notFound">No customers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="customers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="firstName"><span jhiTranslate="mitiendaApp.customer.firstName">First Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastName"><span jhiTranslate="mitiendaApp.customer.lastName">Last Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idNumber"><span jhiTranslate="mitiendaApp.customer.idNumber">Id Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="mitiendaApp.customer.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phone"><span jhiTranslate="mitiendaApp.customer.phone">Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="addresLine"><span jhiTranslate="mitiendaApp.customer.addresLine">Addres Line</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userId"><span jhiTranslate="mitiendaApp.customer.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productoNombre"><span jhiTranslate="mitiendaApp.customer.producto">Producto</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers ;trackBy: trackId">
+                    <td><a [routerLink]="['/customer', customer.id, 'view']">{{ customer.id }}</a></td>
+                    <td>{{ customer.firstName }}</td>
+                    <td>{{ customer.lastName }}</td>
+                    <td>{{ customer.idNumber }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.addresLine }}</td>
+                    <td>
+                        <div *ngIf="customer.userId">
+                            <a [routerLink]="['/home', customer.userId , 'view']" >{{ customer.userId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="customer.productoId">
+                            <a [routerLink]="['/product', customer.productoId , 'view']" >{{ customer.productoNombre }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/customer', customer.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/customer', customer.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(customer)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="customers?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

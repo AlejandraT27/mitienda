@@ -1,0 +1,27 @@
+{
+  "mitiendaApp": {
+    "shoppingCar": {
+      "home": {
+        "title": "Shopping Cars",
+        "createLabel": "Crear nuevo Shopping Car",
+        "createOrEditLabel": "Crear o editar Shopping Car",
+        "notFound": "Ningún Shopping Cars encontrado"
+      },
+      "created": "Un nuevo Shopping Car ha sido creado con el identificador {{ param }}",
+      "updated": "Un Shopping Car ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Shopping Car ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Shopping Car {{ id }}?"
+      },
+      "detail": {
+        "title": "Shopping Car"
+      },
+      "numberProduct": "Number Product",
+      "product": "Product",
+      "description": "Description",
+      "quantity": "Quantity",
+      "totalPurchase": "Total Purchase",
+      "user": "User"
+    }
+  }
+}

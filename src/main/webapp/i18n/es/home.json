@@ -1,0 +1,26 @@
+{
+  "mitiendaApp": {
+    "home": {
+      "home": {
+        "title": "Homes",
+        "createLabel": "Crear nuevo Home",
+        "createOrEditLabel": "Crear o editar Home",
+        "notFound": "Ningún Homes encontrado"
+      },
+      "created": "Un nuevo Home ha sido creado con el identificador {{ param }}",
+      "updated": "Un Home ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Home ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Home {{ id }}?"
+      },
+      "detail": {
+        "title": "Home"
+      },
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "adress": "Adress",
+      "phone": "Phone",
+      "locality": "Locality"
+    }
+  }
+}

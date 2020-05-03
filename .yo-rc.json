@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.menttech.mitienda",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "mitienda",
+    "packageName": "com.menttech.mitienda",
+    "packageFolder": "com/menttech/mitienda",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZjNlNmFjMDcyNTA3NWZmNzc4NDE1NGE3M2I3MjM5OTc2MTM5NDQ4NjJlMzA3Njc0Y2M2MDE0NzRlMWU4OTlmODQ0OTNhMzhjMzA1YTQwMTM5MmQyNzUxNWQ5NTk5MTQyN2MyZmExODg1OGU1YjlmOGNhNmIwM2MyMzRlNGNkNGE=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1588526570336,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es"],
+    "blueprints": []
+  }
+}

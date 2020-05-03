@@ -1,0 +1,103 @@
+
+entity Product {
+
+name String required
+description String 
+purchasePrice BigDecimal
+salePrice BigDecimal
+size Size required
+color Color required
+stock String
+image ImageBlob
+}
+
+entity Seller{
+
+firstName String required
+}
+
+entity ShoppingCar{
+
+numberProduct String required
+product String required
+description String
+quantity BigDecimal required
+totalPurchase BigDecimal 
+
+}
+
+entity Payment {
+
+firstName String required
+lastName String required
+wayToPay String required
+}
+
+entity Home{
+
+firstName String required
+lastName String required
+adress String required
+phone String required
+locality String 
+}
+
+
+entity Stock {
+
+numberProduct String required
+nameProduct String required
+description String
+inventory String 
+
+}
+enum Color{
+Blanco, Cafe, Negro, Gris, Azul
+}
+
+enum Size{
+XS, S, M, L, XXL
+}
+
+entity ProductCategory{
+name String required
+description String 
+}
+
+entity Customer{
+
+firstName String required
+lastName String required 
+idNumber String required
+email String required pattern (/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+phone String required 
+addresLine String required
+}
+
+relationship OneToOne{
+
+
+Customer {user} to Home
+Payment {user} to Customer
+Seller {user} to Stock
+ShoppingCar {user} to Customer
+Product {user} to Stock
+}
+
+relationship OneToMany{
+
+Product {productCategoy(nombre)} to Customer{producto(nombre)}
+Product {productCategory(nombre)} to ProductCategory{producto(nombre)}
+}
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass
+filter * 
+
+
+
+
+
+
+
+

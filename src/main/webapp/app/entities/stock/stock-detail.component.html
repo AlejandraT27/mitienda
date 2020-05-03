@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stock">
+            <h2><span jhiTranslate="mitiendaApp.stock.detail.title">Stock</span> {{ stock.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mitiendaApp.stock.numberProduct">Number Product</span></dt>
+                <dd>
+                    <span>{{ stock.numberProduct }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.stock.nameProduct">Name Product</span></dt>
+                <dd>
+                    <span>{{ stock.nameProduct }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.stock.description">Description</span></dt>
+                <dd>
+                    <span>{{ stock.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.stock.inventory">Inventory</span></dt>
+                <dd>
+                    <span>{{ stock.inventory }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stock', stock.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

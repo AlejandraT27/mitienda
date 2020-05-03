@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="shoppingCar">
+            <h2><span jhiTranslate="mitiendaApp.shoppingCar.detail.title">Shopping Car</span> {{ shoppingCar.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mitiendaApp.shoppingCar.numberProduct">Number Product</span></dt>
+                <dd>
+                    <span>{{ shoppingCar.numberProduct }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.shoppingCar.product">Product</span></dt>
+                <dd>
+                    <span>{{ shoppingCar.product }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.shoppingCar.description">Description</span></dt>
+                <dd>
+                    <span>{{ shoppingCar.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.shoppingCar.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ shoppingCar.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.shoppingCar.totalPurchase">Total Purchase</span></dt>
+                <dd>
+                    <span>{{ shoppingCar.totalPurchase }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.shoppingCar.user">User</span></dt>
+                <dd>
+                    <div *ngIf="shoppingCar.userId">
+                        <a [routerLink]="['/customer', shoppingCar.userId, 'view']">{{ shoppingCar.userId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/shopping-car', shoppingCar.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

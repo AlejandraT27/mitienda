@@ -1,0 +1,23 @@
+{
+  "mitiendaApp": {
+    "seller": {
+      "home": {
+        "title": "Sellers",
+        "createLabel": "Crear nuevo Seller",
+        "createOrEditLabel": "Crear o editar Seller",
+        "notFound": "Ningún Sellers encontrado"
+      },
+      "created": "Un nuevo Seller ha sido creado con el identificador {{ param }}",
+      "updated": "Un Seller ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Seller ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Seller {{ id }}?"
+      },
+      "detail": {
+        "title": "Seller"
+      },
+      "firstName": "First Name",
+      "user": "User"
+    }
+  }
+}

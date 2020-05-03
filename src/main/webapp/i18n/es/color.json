@@ -1,0 +1,12 @@
+{
+  "mitiendaApp": {
+    "Color": {
+      "null": "",
+      "Blanco": "Blanco",
+      "Cafe": "Cafe",
+      "Negro": "Negro",
+      "Gris": "Gris",
+      "Azul": "Azul"
+    }
+  }
+}

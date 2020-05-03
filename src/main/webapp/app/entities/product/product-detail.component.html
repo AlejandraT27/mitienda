@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="product">
+            <h2><span jhiTranslate="mitiendaApp.product.detail.title">Product</span> {{ product.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mitiendaApp.product.name">Name</span></dt>
+                <dd>
+                    <span>{{ product.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.product.description">Description</span></dt>
+                <dd>
+                    <span>{{ product.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.product.purchasePrice">Purchase Price</span></dt>
+                <dd>
+                    <span>{{ product.purchasePrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.product.salePrice">Sale Price</span></dt>
+                <dd>
+                    <span>{{ product.salePrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.product.size">Size</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'mitiendaApp.Size.' + product.size }}">{{ product.size }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.product.color">Color</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'mitiendaApp.Color.' + product.color }}">{{ product.color }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.product.stock">Stock</span></dt>
+                <dd>
+                    <span>{{ product.stock }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.product.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="product.image">
+                        <a (click)="openFile(product?.imageContentType!, product?.image)">
+                            <img [src]="'data:' + product.imageContentType + ';base64,' + product.image" style="max-width: 100%;" alt="product image"/>
+                        </a>
+                        {{ product.imageContentType }}, {{ byteSize(product.image) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.product.user">User</span></dt>
+                <dd>
+                    <div *ngIf="product.userId">
+                        <a [routerLink]="['/stock', product.userId, 'view']">{{ product.userId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product', product.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

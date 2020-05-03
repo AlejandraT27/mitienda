@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="home">
+            <h2><span jhiTranslate="mitiendaApp.home.detail.title">Home</span> {{ home.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mitiendaApp.home.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{ home.firstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.home.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ home.lastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.home.adress">Adress</span></dt>
+                <dd>
+                    <span>{{ home.adress }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.home.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ home.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.home.locality">Locality</span></dt>
+                <dd>
+                    <span>{{ home.locality }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/home', home.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
